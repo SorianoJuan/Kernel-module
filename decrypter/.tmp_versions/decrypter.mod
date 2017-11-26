@@ -1,3 +1,3 @@
-/home/torce/Desktop/decrypter/decrypter.ko
-/home/torce/Desktop/decrypter/decrypter.o
+/home/torce/Desktop/Kernel-module/decrypter/decrypter.ko
+/home/torce/Desktop/Kernel-module/decrypter/decrypter.o
 

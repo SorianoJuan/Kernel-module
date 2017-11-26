@@ -1,3 +1,3 @@
-/home/torce/Desktop/encrypter/encrypter.ko
-/home/torce/Desktop/encrypter/encrypter.o
+/home/torce/Desktop/Kernel-module/encrypter/encrypter.ko
+/home/torce/Desktop/Kernel-module/encrypter/encrypter.o
 
