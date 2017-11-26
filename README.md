@@ -6,7 +6,7 @@ Instrucciones de uso:
 
 -Dentro de las respectivas carpetas, insertar los modulos del kernel con sudo insmod encrypter.ko/decrypter.ko
 
--Dentro de la carpeta del encrypter, ejecutar <<sudo mknod -m 0666 /dev/decrypter c 1717 0>>
+-Dentro de la carpeta del encrypter, ejecutar <<sudo mknod -m 0666 /dev/encrypter c 1717 0>>
 
 -Dentro de la carpeta del decrypter, ejecutar <<sudo mknod -m 0666 /dev/decrypter c 1718 0>>
 

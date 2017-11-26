@@ -13,9 +13,9 @@ static char Message[BUF_LEN];
 static char *Message_Ptr;
 static int flag_device = 0;
 
-static int flag_device(struct inode *inode, struct file *file) {
+static int device_open(struct inode *inode, struct file *file) {
 #ifdef DEBUG
-    printk(KERN_INFO "flag_device(%p)\n", file);
+    printk(KERN_INFO "device_open(%p)\n", file);
 #endif
 
     if (flag_device) {
@@ -113,7 +113,7 @@ struct file_operations Fops = {
         .read = device_read,
         .write = device_write,
         .unlocked_ioctl = device_ioctl,
-        .open = flag_device,
+        .open = device_open,
         .release = device_release,
 };
 
