@@ -1,28 +1,27 @@
-#include <linux/kernel.h>       /* We're doing kernel work */
-#include <linux/module.h>       /* Specifically, a module */
+#include <linux/kernel.h>    
+#include <linux/module.h>       
 #include <linux/fs.h>
-#include <asm/uaccess.h>        /* for get_user and put_user */
+#include <asm/uaccess.h>        
 
 #include "decrypter.h"
+
 #define SUCCESS 0
 #define DEVICE_NAME "decrypter"
 #define BUF_LEN 80
 
-static int Device_Open = 0;
-
 static char Message[BUF_LEN];
-
 static char *Message_Ptr;
+static int flag_device = 0;
 
-static int device_open(struct inode *inode, struct file *file) {
+static int flag_device(struct inode *inode, struct file *file) {
 #ifdef DEBUG
-    printk(KERN_INFO "device_open(%p)\n", file);
+    printk(KERN_INFO "flag_device(%p)\n", file);
 #endif
 
-    if (Device_Open) {
+    if (flag_device) {
         return -EBUSY;
     }
-    Device_Open++;
+    flag_device++;
 
     Message_Ptr = Message;
     try_module_get(THIS_MODULE);
@@ -35,7 +34,7 @@ static int device_release(struct inode *inode, struct file *file)
         printk(KERN_INFO "device_release(%p,%p)\n", inode, file);
 #endif
 
-    Device_Open--;
+    flag_device--;
 
     module_put(THIS_MODULE);
     return SUCCESS;
@@ -114,7 +113,7 @@ struct file_operations Fops = {
         .read = device_read,
         .write = device_write,
         .unlocked_ioctl = device_ioctl,
-        .open = device_open,
+        .open = flag_device,
         .release = device_release,
 };
 
