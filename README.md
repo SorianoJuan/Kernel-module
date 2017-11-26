@@ -16,4 +16,4 @@ Instrucciones de uso:
 
 -Redireccionar lo ingresado en el encrypter al decrypter <<cat /dev/encrypter > /dev/decrypter>>
 
--Leer el device file del decrypter, debera salir los caracteres originales 1234 ><cat /dev/decrypter>>
+-Leer el device file del decrypter, debera salir los caracteres originales 1234 <<cat /dev/decrypter>>
