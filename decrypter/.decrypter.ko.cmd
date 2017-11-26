@@ -1,0 +1,1 @@
+cmd_/home/torce/Desktop/decrypter/decrypter.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/torce/Desktop/decrypter/decrypter.ko /home/torce/Desktop/decrypter/decrypter.o /home/torce/Desktop/decrypter/decrypter.mod.o ;  true
